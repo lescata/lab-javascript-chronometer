@@ -56,10 +56,33 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
-});
+   // 1. changer la couleur du bouton START
+   // 2. changer le texte du bouton START
+   // 3. changer la couleur du bouton RESET
+   // 4. changer le texte du bouton RESET
+   // 5. appeler start()
+   // 6. mettre a jour les digits
 
+   //1.
+   btnLeftElement.className = "btn stop"
+
+   //2.
+   btnLeftElement.innerHTML= "STOP"
+
+   //3.
+   btnRightElement.className = "btn split"
+   //4.
+   btnRightElement.innerHTML = "SPLIT"
+  //5.6.
+   chronometer.start(function () {
+     console.log(`${chronometer.split()[4]}`)
+     document.getElementById("secUni").innerHTML = `${chronometer.split()[4]}`
+     document.getElementById("secDec").innerHTML = `${chronometer.split()[3]}`
+     document.getElementById("minUni").innerHTML = `${chronometer.split()[1]}`
+     document.getElementById("minDec").innerHTML = `${chronometer.split()[0]}`
+   }) 
+});
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  btnRightElement.onclick.innerHtml = "SPLIT"
 });

@@ -5,13 +5,15 @@ class Chronometer {
   }
 
   start(callback) {
-    if (arguments.length > 0) {
-      callback();
-    } else {
-      this.intervalId = setInterval(() => {
-        this.currentTime += 1;
-      }, 1000);
-    }
+    this.intervalId = setInterval(() => {
+      console.log('tic')
+      this.currentTime += 1;
+
+      if (callback) {
+        callback();
+      }
+      
+    }, 1000);
   }
 
   getMinutes() {
@@ -23,7 +25,7 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    if (value < 9) {
+    if (value <= 9) {
       return `0${value}`;
     } else {
       return `${value}`;
