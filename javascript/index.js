@@ -57,7 +57,7 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
 
-  if (btnLeftElement.innerHTML === "START") {         // Si le bouton de droite affiche START, alors:
+  if (btnLeftElement.innerHTML === "START") {         // Si le bouton de gauche affiche START, alors:
 
     btnLeftElement.className = "btn stop"             // on change la couleur du bouton START
 
@@ -75,7 +75,7 @@ btnLeftElement.addEventListener('click', () => {
     })
   }
 
-  else {                                              // Si le bouton de droite n'affiche pas start, alors:
+  else {                                              // Si le bouton de gauche n'affiche pas start, alors:
 
     btnLeftElement.className = "btn start"            // on change la couleur du bouton STOP
 
@@ -90,5 +90,16 @@ btnLeftElement.addEventListener('click', () => {
 });
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  btnRightElement.onclick.innerHtml = "SPLIT"
+  
+  if (btnRightElement.innerHTML === "RESET"){         // Si le bouton de droite affiche reset, alors:
+    
+    secUniElement.innerHTML = 0                       // on met a jour les digits
+    secDecElement.innerHTML = 0
+    minUniElement.innerHTML = 0
+    minDecElement.innerHTML = 0
+    chronometer.reset()                               // on appelle reset()
+  }
+  else{                                               // Si le bouton de droite n'affiche pas reset, alors:
+
+  }
 });
