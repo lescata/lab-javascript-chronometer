@@ -6,13 +6,10 @@ class Chronometer {
 
   start(callback) {
     this.intervalId = setInterval(() => {
-      console.log('tic')
       this.currentTime += 1;
-
       if (callback) {
         callback();
       }
-      
     }, 1000);
   }
 
@@ -37,13 +34,13 @@ class Chronometer {
   }
 
   reset() {
-    this.currentTime=0;
+    this.currentTime = 0;
   }
 
   split() {
-   let minutes=this.computeTwoDigitNumber(this.getMinutes())
-   let secondes=this.computeTwoDigitNumber(this.getSeconds())
-   return (`${minutes}:${secondes}`)
+    let minutes = this.computeTwoDigitNumber(this.getMinutes())
+    let secondes = this.computeTwoDigitNumber(this.getSeconds())
+    return (`${minutes}:${secondes}`)
   }
 }
 

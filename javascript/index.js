@@ -13,46 +13,37 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
-function printTime() {
+/*function printTime() {
   // ... your code goes here
 }
-
 function printMinutes() {
   // ... your code goes here
 }
-
 function printSeconds() {
   // ... your code goes here
 }
-
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
 }
-
 function printSplit() {
   // ... your code goes here
 }
-
 function clearSplits() {
   // ... your code goes here
 }
-
 function setStopBtn() {
   // ... your code goes here
 }
-
 function setSplitBtn() {
   // ... your code goes here
 }
-
 function setStartBtn() {
   // ... your code goes here
 }
-
 function setResetBtn() {
   // ... your code goes here
-}
+} */
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
@@ -75,36 +66,36 @@ btnLeftElement.addEventListener('click', () => {
     })
   }
 
-  else {                                                                      // Si le bouton de gauche n'affiche pas start, alors:
+  else {                                             // Si le bouton de gauche n'affiche pas start, alors:
 
-    btnLeftElement.className = "btn start"                                    // on change la couleur du bouton STOP
+    btnLeftElement.className = "btn start"           // on change la couleur du bouton STOP
 
-    btnLeftElement.innerHTML = "START"                                        // on change le texte du bouton STOP
+    btnLeftElement.innerHTML = "START"               // on change le texte du bouton STOP
 
-    btnRightElement.className = "btn reset"                                   // on change la couleur du bouton SPLIT
+    btnRightElement.className = "btn reset"          // on change la couleur du bouton SPLIT
 
-    btnRightElement.innerHTML = "RESET"                                       // on change le texte du bouton SPLIT
+    btnRightElement.innerHTML = "RESET"              // on change le texte du bouton SPLIT
 
-    chronometer.stop()                                                        // on appelle stop() -> le décompte s'arrête
+    chronometer.stop()                               // on appelle stop() -> le décompte s'arrête
   }
 });
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  
-  if (btnRightElement.innerHTML === "RESET"){                                 // Si le bouton de droite affiche reset, alors:
-    
-    secUniElement.innerHTML = 0                                               // on met a jour les digits
+
+  if (btnRightElement.innerHTML === "RESET") {        // Si le bouton de droite affiche reset, alors:
+
+    secUniElement.innerHTML = 0                      // on met a jour les digits
     secDecElement.innerHTML = 0
     minUniElement.innerHTML = 0
     minDecElement.innerHTML = 0
-    chronometer.reset()                                                       // on appelle reset()  -> le compteur revient à 0
+    chronometer.reset()                              // on appelle reset()  -> le compteur revient à 0
 
-    splitsElement.innerHTML = ''                                              // on efface la liste des splits
+    splitsElement.innerHTML = ''                     // on efface la liste des splits
   }
-  else{                                                                       // Si le bouton de droite n'affiche pas reset, alors:
-    const newLi= document.createElement("li")                                 // on crée une nouvelle balise <li>
-    newLi.setAttribute('class','splitTime')                                   // on donne un nom de classe à notre <li> (pas forcément utile ici)
-    splitsElement.appendChild(newLi)                                          // on rajoute notre nouvel élément de liste dans <ol id=splits>
-    newLi.innerHTML = `${chronometer.split()}`                                // on écrit le timer sur notre <li>  
+  else {                                              // Si le bouton de droite n'affiche pas reset, alors:
+    const newLi = document.createElement("li")        // on crée une nouvelle balise <li>
+    newLi.setAttribute('class', 'splitTime')          // on donne un nom de classe à notre <li> (pas forcément utile ici)
+    splitsElement.appendChild(newLi)                 // on rajoute notre nouvel élément de liste dans <ol id=splits>
+    newLi.innerHTML = `${chronometer.split()}`       // on écrit le timer sur notre <li>  
   }
 });
