@@ -57,49 +57,51 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
 
-  if (btnLeftElement.innerHTML === "START") {         // Si le bouton de gauche affiche START, alors:
+  if (btnLeftElement.innerHTML === "START") {                                 // Si le bouton de gauche affiche START, alors:
 
-    btnLeftElement.className = "btn stop"             // on change la couleur du bouton START
+    btnLeftElement.className = "btn stop"                                     // on change la couleur du bouton START
 
-    btnLeftElement.innerHTML = "STOP"                 // on change le texte du bouton START
+    btnLeftElement.innerHTML = "STOP"                                         // on change le texte du bouton START
 
-    btnRightElement.className = "btn split"           // on change la couleur du bouton RESET
+    btnRightElement.className = "btn split"                                   // on change la couleur du bouton RESET
 
-    btnRightElement.innerHTML = "SPLIT"               // on change le texte du bouton RESET
+    btnRightElement.innerHTML = "SPLIT"                                       // on change le texte du bouton RESET
 
-    chronometer.start(function () {                   //on appelle start() 
-      secUniElement.innerHTML = `${chronometer.split()[4]}`  //on met a jour les digits
+    chronometer.start(function () {                                           //on appelle start() 
+      secUniElement.innerHTML = `${chronometer.split()[4]}`                   //on met a jour les digits
       secDecElement.innerHTML = `${chronometer.split()[3]}`
       minUniElement.innerHTML = `${chronometer.split()[1]}`
       minDecElement.innerHTML = `${chronometer.split()[0]}`
     })
   }
 
-  else {                                              // Si le bouton de gauche n'affiche pas start, alors:
+  else {                                                                      // Si le bouton de gauche n'affiche pas start, alors:
 
-    btnLeftElement.className = "btn start"            // on change la couleur du bouton STOP
+    btnLeftElement.className = "btn start"                                    // on change la couleur du bouton STOP
 
-    btnLeftElement.innerHTML = "START"                // on change le texte du bouton STOP
+    btnLeftElement.innerHTML = "START"                                        // on change le texte du bouton STOP
 
-    btnRightElement.className = "btn reset"           // on change la couleur du bouton SPLIT
+    btnRightElement.className = "btn reset"                                   // on change la couleur du bouton SPLIT
 
-    btnRightElement.innerHTML = "RESET"               // on change le texte du bouton SPLIT
+    btnRightElement.innerHTML = "RESET"                                       // on change le texte du bouton SPLIT
 
-    chronometer.stop()                                // on appelle stop() -> le décompte s'arrête
+    chronometer.stop()                                                        // on appelle stop() -> le décompte s'arrête
   }
 });
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
   
-  if (btnRightElement.innerHTML === "RESET"){         // Si le bouton de droite affiche reset, alors:
+  if (btnRightElement.innerHTML === "RESET"){                                 // Si le bouton de droite affiche reset, alors:
     
-    secUniElement.innerHTML = 0                       // on met a jour les digits
+    secUniElement.innerHTML = 0                                               // on met a jour les digits
     secDecElement.innerHTML = 0
     minUniElement.innerHTML = 0
     minDecElement.innerHTML = 0
-    chronometer.reset()                               // on appelle reset()
+    chronometer.reset()                                                       // on appelle reset()  -> le compteur revient à 0
   }
-  else{                                               // Si le bouton de droite n'affiche pas reset, alors:
-
+  else{                                                                       // Si le bouton de droite n'affiche pas reset, alors:
+    const newLi= document.createElement("li")                                 // on ajoute un élément liste à la liste des splits
+    document.getElementById("splits").appendChild(newLi)
+    newLi.innerHTML = `${chronometer.split()}`                                // on écrit le timer de chaque split sur chaque nouvel element de la liste   
   }
 });
