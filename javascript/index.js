@@ -98,10 +98,13 @@ btnRightElement.addEventListener('click', () => {
     minUniElement.innerHTML = 0
     minDecElement.innerHTML = 0
     chronometer.reset()                                                       // on appelle reset()  -> le compteur revient à 0
+
+    splitsElement.innerHTML = ''                                              // on efface la liste des splits
   }
   else{                                                                       // Si le bouton de droite n'affiche pas reset, alors:
-    const newLi= document.createElement("li")                                 // on ajoute un élément liste à la liste des splits
-    document.getElementById("splits").appendChild(newLi)
-    newLi.innerHTML = `${chronometer.split()}`                                // on écrit le timer de chaque split sur chaque nouvel element de la liste   
+    const newLi= document.createElement("li")                                 // on crée une nouvelle balise <li>
+    newLi.setAttribute('class','splitTime')                                   // on donne un nom de classe à notre <li> (pas forcément utile ici)
+    splitsElement.appendChild(newLi)                                          // on rajoute notre nouvel élément de liste dans <ol id=splits>
+    newLi.innerHTML = `${chronometer.split()}`                                // on écrit le timer sur notre <li>  
   }
 });
